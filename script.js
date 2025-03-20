@@ -60,20 +60,18 @@ function playRound(humanChoice, computerChoice) {
     } else {
         return null; 
     }
-
 }
 
-
-// OUTPUT 
-
-const humanSelection = getHumanChoice();
-const computerSelection = GetComputerChoice();
-
-console.log(`You chose: ${humanSelection}`);
-console.log(`Computer chose: ${computerSelection}`);
-
-const result = playRound(humanSelection, computerSelection);
-
-console.log(result);
-console.log(`SCORE -> human:  ${humanScore}`);
-console.log(`SCORE -> computer: ${computerScore}`);
+function playGame() {
+    for(let i = 0; i < 5; i++) {
+       let userOption = getHumanChoice();
+       let computerOption = GetComputerChoice();
+       let result = playRound(userOption, computerOption);
+       console.log(`You choose ${userOption}`);
+       console.log(`Computer choose ${computerOption}`);
+       console.log(result);
+       console.log(`Score - human: ${humanScore}, computer: ${computerScore}`);
+    }
+    console.log(`Final Score - human: ${humanScore}, computer: ${computerScore}`);
+}
+playGame();

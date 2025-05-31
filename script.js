@@ -14,11 +14,6 @@ function GetComputerChoice() {
     } 
 }
 
-function getHumanChoice() {
-    let sign = prompt("Rock, Paper or Scissors?").toLowerCase();
-    return sign;
-}
-
 function playRound(humanChoice, computerChoice) {
     if (humanChoice === 'rock') {
         if (computerChoice === 'rock') {
@@ -61,7 +56,7 @@ function playRound(humanChoice, computerChoice) {
         return null; 
     }
 }
-
+/*
 function playGame() {
     for(let i = 0; i < 5; i++) {
        let userOption = getHumanChoice();
@@ -75,3 +70,29 @@ function playGame() {
     console.log(`Final Score - human: ${humanScore}, computer: ${computerScore}`);
 }
 playGame();
+*/
+
+const div = document.querySelector("div");
+
+const btn1 = document.querySelector("#btn1");
+btn1.addEventListener("click", ()=>{
+    const computerPick = GetComputerChoice();
+    const result = playRound('rock', computerPick);
+    div.innerHTML += `You picked: Rock. Computer picked: ${computerPick}<br>Result: ${result}<br><br>`
+});
+
+const btn2 = document.querySelector("#btn2");
+btn2.addEventListener("click", ()=>{
+    const computerPick = GetComputerChoice()
+    const result = playRound('paper', computerPick)
+    div.innerHTML += `You picked: Paper. Computer picked: ${computerPick}<br>Result: ${result}<br><br>`
+});
+
+const btn3 = document.querySelector("#btn3");
+btn3.addEventListener("click", ()=>{
+    const computerPick = GetComputerChoice()
+    const result = playRound('scissors', computerPick)
+    div.innerHTML += `You picked: Scissors. Computer picked: ${computerPick}<br>Result: ${result}<br><br>`
+   
+});
+

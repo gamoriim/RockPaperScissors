@@ -56,21 +56,6 @@ function playRound(humanChoice, computerChoice) {
         return null; 
     }
 }
-/*
-function playGame() {
-    for(let i = 0; i < 5; i++) {
-       let userOption = getHumanChoice();
-       let computerOption = GetComputerChoice();
-       let result = playRound(userOption, computerOption);
-       console.log(`You choose ${userOption}`);
-       console.log(`Computer choose ${computerOption}`);
-       console.log(result);
-       console.log(`Score - human: ${humanScore}, computer: ${computerScore}`);
-    }
-    console.log(`Final Score - human: ${humanScore}, computer: ${computerScore}`);
-}
-playGame();
-*/
 
 const div = document.querySelector("div");
 
@@ -78,21 +63,55 @@ const btn1 = document.querySelector("#btn1");
 btn1.addEventListener("click", ()=>{
     const computerPick = GetComputerChoice();
     const result = playRound('rock', computerPick);
-    div.innerHTML += `You picked: Rock. Computer picked: ${computerPick}<br>Result: ${result}<br><br>`
+    div.innerHTML = `You picked: Rock. Computer picked: ${computerPick}<br>Result: ${result}<br> HumanScore: ${humanScore}. ComputerScore: ${computerScore}<br><br>`
+
+    if(computerScore === 5 || humanScore === 5) {
+        btn1.disabled = true;
+        btn2.disabled = true;
+        btn3.disabled = true;
+
+        if(humanScore === 5) {
+            div.innerHTML += "<strong>YOU WON THE GAME<strong>"
+        } else {
+            div.innerHTML += "<strong>COMPUTER WON THE GAME<strong>"
+        }
+    }
 });
 
 const btn2 = document.querySelector("#btn2");
 btn2.addEventListener("click", ()=>{
     const computerPick = GetComputerChoice()
     const result = playRound('paper', computerPick)
-    div.innerHTML += `You picked: Paper. Computer picked: ${computerPick}<br>Result: ${result}<br><br>`
+    div.innerHTML = `You picked: Paper. Computer picked: ${computerPick}<br>Result: ${result}<br> HumanScore: ${humanScore}. ComputerScore: ${computerScore}<br><br>`
+
+    if(computerScore === 5 || humanScore === 5) {
+        btn1.disabled = true;
+        btn2.disabled = true;
+        btn3.disabled = true;
+
+        if(humanScore === 5) {
+            div.innerHTML += "<strong>YOU WON THE GAME<strong>"
+        } else {
+            div.innerHTML += "<strong>COMPUTER WON THE GAME<strong>"
+        }
+    }
 });
 
 const btn3 = document.querySelector("#btn3");
 btn3.addEventListener("click", ()=>{
     const computerPick = GetComputerChoice()
     const result = playRound('scissors', computerPick)
-    div.innerHTML += `You picked: Scissors. Computer picked: ${computerPick}<br>Result: ${result}<br><br>`
-   
-});
+    div.innerHTML = `You picked: Scissors. Computer picked: ${computerPick}<br>Result: ${result}<br> HumanScore: ${humanScore}. ComputerScore: ${computerScore}<br><br>`
 
+    if(computerScore === 5 || humanScore === 5) {
+        btn1.disabled = true;
+        btn2.disabled = true;
+        btn3.disabled = true;
+
+        if(humanScore === 5) {
+            div.innerHTML += "<strong>YOU WON THE GAME<strong>"
+        } else {
+            div.innerHTML += "<strong>COMPUTER WON THE GAME<strong>"
+        }
+    }
+});
